@@ -4,7 +4,7 @@
 
   Control structures: if - else
  */
-package com.github.egalli64.s03
+package com.github.egalli64.scala3.s03
 
 import scala.math.random
 

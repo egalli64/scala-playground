@@ -4,7 +4,7 @@
 
   Hello World plus import for read
  */
-package com.github.egalli64.s01
+package com.github.egalli64.scala3.s01
 
 import scala.io.StdIn.readLine
 

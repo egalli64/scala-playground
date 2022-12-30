@@ -4,7 +4,7 @@
 
   Control structures: try catch finally
  */
-package com.github.egalli64.s03
+package com.github.egalli64.scala3.s03
 
 @main def tryCatchFinally(input: String): Unit =
   try

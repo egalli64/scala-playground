@@ -26,6 +26,9 @@ class Cat(name: String) extends Speaker, Wagger, Runner:
   override def stopRunning(): Unit = println("No need to stop")
 
 @main def bTrait() : Unit =
+  // Wagger is a trait; it cannot be instantiated
+//  val w = new Wagger()
+
   val d = Dog("Rover")
   d.startTail()
   println(d.speak)

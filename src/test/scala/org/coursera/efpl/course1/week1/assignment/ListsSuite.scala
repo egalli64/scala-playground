@@ -5,15 +5,15 @@
 
   Week 1 - Getting Started - Example - Practice Programming Assignment
  */
-package org.coursera.efpl.course1.week1.assignment0
+package org.coursera.efpl.course1.week1.assignment
 
-import org.coursera.efpl.course1.week1.assigment0.Lists.Lists.*
+import org.coursera.efpl.course1.week1.assigment.Lists.*
 
 class ListsSuite extends munit.FunSuite:
   test("sum of a few numbers") {
-    assert(sum(List(1, 2, 0)) == 3)
+    assertEquals(sum(List(1, 2, 0)), 3)
   }
 
   test("max of a few numbers") {
-    assert(max(List(3, 7, 2)) == 7)
+    assertEquals(max(List(3, 7, 2)), 7)
   }

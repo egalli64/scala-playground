@@ -7,9 +7,9 @@
  */
 package org.coursera.efpl.course1.week1.assignment
 
-import org.coursera.efpl.course1.week1.assigment.Lists.*
-
 class ListsSuite extends munit.FunSuite:
+  import Lists.*
+  
   test("sum of a few numbers") {
     assertEquals(sum(List(1, 2, 0)), 3)
   }

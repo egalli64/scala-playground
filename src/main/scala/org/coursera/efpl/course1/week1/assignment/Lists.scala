@@ -5,7 +5,7 @@
 
   Week 1 - Getting Started - Example - Practice Programming Assignment
  */
-package org.coursera.efpl.course1.week1.assigment
+package org.coursera.efpl.course1.week1.assignment
 
 import scala.annotation.tailrec
 

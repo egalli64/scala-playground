@@ -3,7 +3,7 @@
   https://www.coursera.org/learn/scala-functional-programming
   https://github.com/egalli64/scala-playground
 
-  Week 2 - Functions & Evaluations - Lecture 2.2 - Currying
+  Week 2 - High Order Functions - Lecture 2.2 - Currying
  */
 package org.coursera.efpl.course1.week2
 

@@ -3,7 +3,7 @@
   https://www.coursera.org/learn/scala-functional-programming
   https://github.com/egalli64/scala-playground
 
-  Week 1 - Functions & Evaluations - Recursion
+  Week 1 - Functions & Evaluations - Practice Programming Assignment: Recursion
  */
 package org.coursera.efpl.course1.week1.assignment
 

@@ -223,12 +223,12 @@ trait Huffman: // extends HuffmanInterface:
     @tailrec
     def loop(node: CodeTree, curBits: List[Bit], acc: List[Char]): List[Char] =
       node match
-        // char decoded, back to root
-        case Leaf(char, _) => loop(tree, curBits, acc.appended(char))
+        // the new char decoded is more naturally added at the list beginning
+        case Leaf(char, _) => loop(tree, curBits, char :: acc)
         case Fork(left, right, _, _) =>
           curBits match
-            // nothing more to decode, process done
-            case Nil => acc
+            // done, but the accumulator was created in the "wrong" way
+            case Nil => acc.reverse
             // eat another bit and go down left or right
             case x :: _ =>
               x match
@@ -346,6 +346,49 @@ trait Huffman: // extends HuffmanInterface:
    * Write a function that returns the decoded secret
    */
   def decodedSecret: List[Char] = decode(frenchCode, secret)
+
+  // Part 4a: Encoding using Huffman tree
+
+  /**
+   * This function encodes `text` using the code tree `tree` into a sequence of bits.
+   *
+   * @param tree
+   *   the code tree
+   * @param text
+   *   the source to encode
+   * @return
+   *   the encoded message
+   */
+  def encode(tree: CodeTree)(text: List[Char]): List[Bit] =
+    /**
+     * Loop on tree, work each time on its current node and text list, adding to the accumulator a
+     * bit each time is found. For efficiency the accumulator is generated reverted and then
+     * adjusted when returning it.
+     *
+     * @param node
+     *   the current node in the tree
+     * @param curText
+     *   the current text
+     * @param acc
+     *   the accumulator so far
+     * @return
+     *   the generated encoding for the text
+     */
+    @tailrec
+    def loop(node: CodeTree, curText: List[Char], acc: List[Bit]): List[Bit] =
+      // for efficiency the accumulator generation is reversed
+      if (curText.isEmpty) acc.reverse
+      else
+        node match
+          // current char encoded, back to tree root, pass to the next char
+          case Leaf(_, _) => loop(tree, curText.tail, acc)
+          // char is left or right, 0 or 1 is added to acc
+          case Fork(left, right, _, _) =>
+            // the new bit is added at the beginning of acc!
+            if (chars(left).contains(curText.head)) loop(left, curText, 0 :: acc)
+            else loop(right, curText, 1 :: acc)
+
+    loop(tree, text, Nil)
 
 end Huffman
 

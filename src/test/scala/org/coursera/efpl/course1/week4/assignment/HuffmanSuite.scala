@@ -125,6 +125,16 @@ class HuffmanSuite extends munit.FunSuite:
       assertEquals(decode(t1, List(0, 1, 1, 0)), "abba".toList)
   }
 
+  test("encode") {
+    new TestTrees:
+      assertEquals(encode(t1)("ab".toList), List(0, 1))
+  }
+
+  test("decode and encode a very short text should be identity (10pts)") {
+    new TestTrees:
+      assertEquals(decode(t1, encode(t1)("ab".toList)), "ab".toList)
+  }
+
   import scala.concurrent.duration.*
   override val munitTimeout: FiniteDuration = 10.seconds
 end HuffmanSuite

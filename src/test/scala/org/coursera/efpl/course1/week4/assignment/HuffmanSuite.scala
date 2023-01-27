@@ -135,6 +135,52 @@ class HuffmanSuite extends munit.FunSuite:
       assertEquals(decode(t1, encode(t1)("ab".toList)), "ab".toList)
   }
 
+  test("codebits") {
+    val table = List(('a', List(0)), ('b', List(1)))
+    assertEquals(codeBits(table)('a'), List(0))
+    assertEquals(codeBits(table)('b'), List(1))
+  }
+
+  test("convert t1") {
+    new TestTrees:
+      private val result = convert(t1)
+      assertEquals(result.size, 2)
+      assertEquals(result.head._1, 'a')
+      assertEquals(result.head._2.head, 0)
+      assertEquals(result.tail.head._1, 'b')
+      assertEquals(result.tail.head._2.head, 1)
+  }
+
+  test("convert t2") {
+    new TestTrees:
+      private val result = convert(t2)
+      assertEquals(result.size, 3)
+
+      // a -> 0, 0
+      assertEquals(result.head._1, 'a')
+      assertEquals(result.head._2.head, 0)
+      assertEquals(result.head._2.tail.head, 0)
+
+      // b -> 0, 1
+      assertEquals(result.tail.head._1, 'b')
+      assertEquals(result.tail.head._2.head, 0)
+      assertEquals(result.tail.head._2.tail.head, 1)
+  }
+
+  test("merge code tables") {
+    val p1 = ('a', List(0))
+    val p2 = ('b', List(1))
+    assertEquals(mergeCodeTables(List(p1), List(p2)), List(p1, p2))
+  }
+
+  test("quick encode") {
+    new TestTrees:
+      private val l = quickEncode(t1)(string2Chars("abba"))
+      assertEquals(l.size, 4)
+      assertEquals(l.head, 0)
+      assertEquals(l.tail.head, 1)
+  }
+
   import scala.concurrent.duration.*
   override val munitTimeout: FiniteDuration = 10.seconds
 end HuffmanSuite

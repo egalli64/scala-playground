@@ -387,8 +387,117 @@ trait Huffman: // extends HuffmanInterface:
             // the new bit is added at the beginning of acc!
             if (chars(left).contains(curText.head)) loop(left, curText, 0 :: acc)
             else loop(right, curText, 1 :: acc)
-
     loop(tree, text, Nil)
+
+  // Part 4b: Encoding using code table
+
+  /** mapping between a char and its bit representation */
+  type CodeTable = List[(Char, List[Bit])]
+
+  /**
+   * This function returns the bit sequence that represents the character `char` in the code table
+   * `table`.
+   *
+   * @param table
+   *   mapper between char and its encoding
+   * @param char
+   *   a character
+   * @return
+   *   its encoding
+   */
+  def codeBits(table: CodeTable)(char: Char): List[Bit] =
+    @tailrec
+    def loop(cur: CodeTable): List[Bit] =
+      if cur.head._1 == char then cur.head._2
+      else loop(cur.tail)
+
+    loop(table)
+
+  /**
+   * Given a code tree, create a code table which contains, for every character in the code tree,
+   * the sequence of bits representing that character.
+   *
+   * Hint: think of a recursive solution: every sub-tree of the code tree `tree` is itself a valid
+   * code tree that can be represented as a code table. Using the code tables of the sub-trees,
+   * think of how to build the code table for the entire tree.
+   *
+   * @param tree
+   *   the code tree
+   * @return
+   *   the associated code table
+   */
+  def convert(tree: CodeTree): CodeTable =
+    /**
+     * Loop on the tree
+     *
+     * @param node
+     *   current node
+     * @param bits
+     *   the list of bits associated to a char
+     * @param acc
+     *   accumulator for the result
+     * @return
+     *   the code table
+     */
+    def loop(node: CodeTree, bits: List[Bit], acc: CodeTable): CodeTable =
+      node match
+        // the char-bits pair is ready (bits reverted for performance)
+        case Leaf(char, _) => (char, bits.reverse) :: acc
+        // go down in the tree, generating a new bit list (reverting 0/1), then merge
+        case Fork(left, right, _, _) =>
+          mergeCodeTables(loop(left, 0 :: bits, acc), loop(right, 1 :: bits, acc))
+
+    // inception with root, an empty list of bits, an empty code table
+    loop(tree, Nil, Nil)
+
+  /**
+   * This function takes two code tables and merges them into one. Depending on how you use it in
+   * the `convert` method above, this merge method might also do some transformations on the two
+   * parameter code tables.
+   *
+   * No transformation required, just concatenate the two lists
+   *
+   * @param a
+   *   first code table
+   * @param b
+   *   second code table
+   * @return
+   *   the concatenation of the two lists
+   */
+  def mergeCodeTables(a: CodeTable, b: CodeTable): CodeTable = a ::: b
+
+  /**
+   * This function encodes `text` according to the code tree `tree`.
+   *
+   * To speed up the encoding process, it first converts the code tree to a code table and then uses
+   * it to perform the actual encoding.
+   *
+   * @param tree
+   *   the code tree
+   * @param text
+   *   the input text
+   * @return
+   *   the encoded text
+   */
+  def quickEncode(tree: CodeTree)(text: List[Char]): List[Bit] =
+    val table = convert(tree)
+
+    /**
+     * Helper loop.
+     *
+     * @param curText
+     *   the text left to be encoded
+     * @param acc
+     *   accumulator for the result
+     * @return
+     *   the encoded text
+     */
+    @tailrec
+    def loop(curText: List[Char], acc: List[Bit]): List[Bit] = curText match {
+      case Nil     => acc
+      case x :: xs => loop(xs, acc ::: codeBits(table)(x))
+    }
+    loop(text, Nil)
 
 end Huffman
 

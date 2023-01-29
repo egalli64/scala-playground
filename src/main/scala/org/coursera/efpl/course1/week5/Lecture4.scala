@@ -40,7 +40,7 @@ def sumFL(xs: List[Int]): Int = xs.foldLeft(0)(_ + _)
 def prodFL(xs: List[Int]): Int = xs.foldLeft(1)(_ * _)
 
 // Refactoring reverse to get O(n) performance
-def reverse[T](xs: List[T]): List[T] =
+def fastReverse[T](xs: List[T]): List[T] =
   xs.foldLeft(List[T]())((xs, x) => x :: xs)
 
 // Exercise: map and length implemented in term of foldRight
@@ -62,7 +62,7 @@ def lecture4(): Unit =
   println("Sum (foldLeft): " + sumFL(l))
   println("Product (foldLeft): " + prodFL(l))
 
-  println("Reversed (foldLeft)" + reverse(l))
+  println("Reversed (foldLeft)" + fastReverse(l))
 
   println("Map (foldRight) to negate: " + mapFun(l, x => -x))
   println("Length (foldRight): " + lengthFun(l))

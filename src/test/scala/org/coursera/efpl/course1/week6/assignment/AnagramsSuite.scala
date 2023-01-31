@@ -59,7 +59,6 @@ class AnagramsSuite extends munit.FunSuite:
     assertEquals(combinations(input).toSet, expected)
   }
 
-
   test("combinations: ab") {
     val input = List(('a', 1), ('b', 1))
     val expected = Set(
@@ -86,3 +85,31 @@ class AnagramsSuite extends munit.FunSuite:
     )
     assertEquals(combinations(abba).toSet, expected)
   }
+
+  test("subtract: lard - x") {
+    val lard = List(('a', 1), ('d', 1), ('l', 1), ('r', 1))
+    val x = List(('x', 1))
+    assertEquals(subtract(lard, x), lard)
+  }
+
+  test("subtract: lard - r (10pts)") {
+    val lard = List(('a', 1), ('d', 1), ('l', 1), ('r', 1))
+    val r = List(('r', 1))
+    val lad = List(('a', 1), ('d', 1), ('l', 1))
+    assertEquals(subtract(lard, r), lad)
+  }
+
+  test("subtract: darla - a") {
+    val darla = List(('a', 2), ('d', 1), ('l', 1), ('r', 1))
+    val a = List(('a', 1))
+    val lard = List(('a', 1), ('d', 1), ('l', 1), ('r', 1))
+    assertEquals(subtract(darla, a), lard)
+  }
+
+  test("subtract: jimmy - my") {
+    val jimmy = List(('i', 1), ('j', 1), ('m', 2), ('y', 1))
+    val my = List(('m', 1), ('y', 1))
+    val jim = List(('i', 1), ('j', 1), ('m', 1))
+    assertEquals(subtract(jimmy, my), jim)
+  }
+

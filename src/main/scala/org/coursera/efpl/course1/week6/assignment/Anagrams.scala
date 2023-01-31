@@ -130,3 +130,33 @@ object Anagrams:
         recursion(acc ++ generated, tail)
 
     recursion(List(Nil), occurrences)
+
+  /**
+   * Subtracts occurrence list `y` from occurrence list `x`.
+   *
+   * The precondition is that the occurrence list `y` is a subset of the occurrence list `x` -- any
+   * character appearing in `y` must appear in `x`, and its frequency in `y` must be smaller or
+   * equal than its frequency in `x`.
+   *
+   * Note: the resulting value is an occurrence - meaning it is sorted and has no zero-entries.
+   *
+   * @param x
+   *   minuend
+   * @param y
+   *   subtrahend
+   * @return
+   *   difference
+   */
+  def subtract(x: Occurrences, y: Occurrences): Occurrences =
+    @tailrec
+    def recursion(acc: Occurrences, xs: Occurrences, ys: Occurrences): Occurrences = (xs, ys) match
+      case (Nil, _) => acc
+      case (_, Nil) => acc ++ xs
+      case _ =>
+        if ys.head._1 == xs.head._1 then
+          if ys.head._2 < xs.head._2 then
+            recursion(acc :+ (ys.head._1, xs.head._2 - ys.head._2), xs.tail, ys.tail)
+          else recursion(acc, xs.tail, ys.tail)
+        else recursion(acc :+ xs.head, xs.tail, ys)
+
+    recursion(Nil, x, y)

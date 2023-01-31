@@ -7,6 +7,8 @@
  */
 package org.coursera.efpl.course1.week6.assignment
 
+import scala.annotation.tailrec
+
 object Anagrams:
   /** A word is simply a `String`. */
   type Word = String
@@ -88,3 +90,43 @@ object Anagrams:
    */
   def wordAnagrams(word: Word): List[Word] =
     dictionaryByOccurrences(wordOccurrences(word))
+
+  /**
+   * Returns the list of all subsets of the occurrence list. This includes the occurrence itself,
+   * i.e. `List(('k', 1), ('o', 1))` is a subset of `List(('k', 1), ('o', 1))`. It also include the
+   * empty subset `List()`.
+   *
+   * Example: the subsets of the occurrence list `List(('a', 2), ('b', 2))` are:
+   *
+   * List( List(), List(('a', 1)), List(('a', 2)), List(('b', 1)), List(('a', 1), ('b', 1)),
+   * List(('a', 2), ('b', 1)), List(('b', 2)), List(('a', 1), ('b', 2)), List(('a', 2), ('b', 2)) )
+   *
+   * Note that the order of the occurrence list subsets does not matter -- the subsets in the
+   * example above could have been displayed in some other order
+   *
+   * @param occurrences
+   *   representation of text as occurrence of letters in it
+   * @return
+   *   all the possible subsets
+   */
+  def combinations(occurrences: Occurrences): List[Occurrences] =
+    /**
+     * Recursion to get all the combinations
+     *
+     * @param acc
+     *   the accumulator, initialized with the empty occurrence
+     * @param others
+     *   the occurrences not yet seen
+     * @return
+     *   the final result
+     */
+    @tailrec
+    def recursion(acc: List[Occurrences], others: Occurrences): List[Occurrences] = others match
+      case Nil          => acc
+      case head :: tail =>
+        // all the head char variation in size are added to all the previously generated elements
+        val generated = for l <- acc; i <- 1 to head._2 yield l :+ (head._1, i)
+        // the accumulator is expanded with the newly generated lists, then get to the next
+        recursion(acc ++ generated, tail)
+
+    recursion(List(Nil), occurrences)

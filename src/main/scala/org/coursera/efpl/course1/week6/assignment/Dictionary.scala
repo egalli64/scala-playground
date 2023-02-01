@@ -11,6 +11,32 @@ package org.coursera.efpl.course1.week6.assignment
  * Simple dictionary, see the material provided with the course for a more useful one
  */
 object Dictionary {
-  val loadDictionary: List[String] =
-    List("ate", "eat", "tea", "married", "admirer", "parley", "pearly", "player", "replay")
+  val loadDictionary: List[String] = List(
+    "admirer",
+    "as",
+    "ate",
+    "eat",
+    "en",
+    "Lin",
+    "Linux",
+    "man",
+    "married",
+    "men",
+    "my",
+    "nil",
+    "null",
+    "parley",
+    "pearly",
+    "player",
+    "replay",
+    "Rex",
+    "rulez",
+    "sane",
+    "say",
+    "Sean",
+    "tea",
+    "Uzi",
+    "yes",
+    "Zulu"
+  )
 }

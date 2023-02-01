@@ -113,3 +113,59 @@ class AnagramsSuite extends munit.FunSuite:
     assertEquals(subtract(jimmy, my), jim)
   }
 
+  test("sentence anagrams: [] (10pts)") {
+    val sentence = List()
+    assertEquals(sentenceAnagrams(sentence), List(Nil))
+  }
+
+  test("sentence anagrams: Linux rulez (10pts)") {
+    val sentence = List("Linux", "rulez")
+    val expected = Set(
+      List("Rex", "Lin", "Zulu"),
+      List("nil", "Zulu", "Rex"),
+      List("Rex", "nil", "Zulu"),
+      List("Zulu", "Rex", "Lin"),
+      List("null", "Uzi", "Rex"),
+      List("Rex", "Zulu", "Lin"),
+      List("Uzi", "null", "Rex"),
+      List("Rex", "null", "Uzi"),
+      List("null", "Rex", "Uzi"),
+      List("Lin", "Rex", "Zulu"),
+      List("nil", "Rex", "Zulu"),
+      List("Rex", "Uzi", "null"),
+      List("Rex", "Zulu", "nil"),
+      List("Zulu", "Rex", "nil"),
+      List("Zulu", "Lin", "Rex"),
+      List("Lin", "Zulu", "Rex"),
+      List("Uzi", "Rex", "null"),
+      List("Zulu", "nil", "Rex"),
+      List("rulez", "Linux"),
+      List("Linux", "rulez")
+    )
+    assertEquals(sentenceAnagrams(sentence).toSet, expected)
+  }
+
+  test("sentence anagrams: Yes man") {
+    val sentence = List("Yes", "man")
+    val expected = Set(
+      List("en", "as", "my"),
+      List("en", "my", "as"),
+      List("man", "yes"),
+      List("men", "say"),
+      List("as", "en", "my"),
+      List("as", "my", "en"),
+      List("sane", "my"),
+      List("Sean", "my"),
+      List("my", "en", "as"),
+      List("my", "as", "en"),
+      List("my", "sane"),
+      List("my", "Sean"),
+      List("say", "men"),
+      List("yes", "man")
+    )
+
+    assertEquals(sentenceAnagrams(sentence).toSet, expected)
+  }
+
+  import scala.concurrent.duration.*
+  override val munitTimeout: FiniteDuration = 10.seconds

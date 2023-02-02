@@ -4,6 +4,6 @@
 
   Minimal Hello World
  */
-package com.github.egalli64.scala3.s01
+package com.github.egalli64.scala3.b01
 
 @main def hello(): Unit = println("Hello, World!")

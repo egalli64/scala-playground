@@ -5,7 +5,7 @@
   Implicit / explicit variable type declaration
   String interpolation, multiline string
  */
-package com.github.egalli64.scala3.s02
+package com.github.egalli64.scala3.b01
 
 @main def implicitExplicit(): Unit =
   // implicit Int

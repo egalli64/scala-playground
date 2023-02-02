@@ -4,7 +4,7 @@
 
   Variable declaration by var and val
  */
-package com.github.egalli64.scala3.s02
+package com.github.egalli64.scala3.b01
 
 @main def valVar(): Unit =
   // immutable

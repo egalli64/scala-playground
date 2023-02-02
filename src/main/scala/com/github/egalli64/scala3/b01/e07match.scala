@@ -4,7 +4,7 @@
 
   Control structures: match
  */
-package com.github.egalli64.scala3.s03
+package com.github.egalli64.scala3.b01
 
 import scala.io.StdIn.readLine
 
@@ -16,14 +16,14 @@ import scala.io.StdIn.readLine
   println(matcher("hello"))
   println(matcher(List(1, 2, 3, 4)))
 
-def matcher(x: Any) : String = x match
+def matcher(x: Any): String = x match
   case i: Int =>
     print("Plain match of an Int ... ")
     i match
       case 1 => "one"
       case 2 => "two"
       case _ => "other"
-  case d: Double => "a Double: " + d
-  case s: String => "a String: " + s
+  case d: Double   => "a Double: " + d
+  case s: String   => "a String: " + s
   case ls: List[_] => "a List: " + ls
-  case _ => "unknown"
+  case _           => "unknown"

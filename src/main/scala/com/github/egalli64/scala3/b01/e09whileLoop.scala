@@ -4,7 +4,7 @@
 
   Control structures: while loop
  */
-package com.github.egalli64.scala3.s03
+package com.github.egalli64.scala3.b01
 
 @main def whileLoop(): Unit =
   var count = 3

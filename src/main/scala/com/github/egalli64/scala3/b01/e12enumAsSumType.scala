@@ -4,7 +4,7 @@
 
   FP Domain Modeling: enum and sum type - to model algebraic data types
  */
-package com.github.egalli64.scala3.s04
+package com.github.egalli64.scala3.b01
 
 /**
  * enum pretty close to Java
@@ -13,7 +13,7 @@ enum CrustSize:
   case Small, Medium, Large
 
 // importing enumerated values
-import CrustSize.*
+import com.github.egalli64.scala3.b01.CrustSize.*
 val curSize = Small
 
 /**

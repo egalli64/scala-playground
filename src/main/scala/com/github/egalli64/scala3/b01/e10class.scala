@@ -4,14 +4,14 @@
 
   OOP Domain Modeling: class
  */
-package com.github.egalli64.scala3.s04
+package com.github.egalli64.scala3.b01
 
 // a class - builtin canonical constructor
 class Person(var firstName: String, var lastName: String):
   // a no-arg method
   def fullName = s"$firstName $lastName"
 
-@main def aClass() : Unit =
+@main def classy(): Unit =
   // a value object
   val p = Person("John", "Stephens")
   println(p.firstName)

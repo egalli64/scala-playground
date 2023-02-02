@@ -4,10 +4,10 @@
 
   OOP Domain Modeling: trait
  */
-package com.github.egalli64.scala3.s04
+package com.github.egalli64.scala3.b01
 
 trait Speaker:
-  def speak: String  // has no body, so it’s abstract
+  def speak: String // has no body, so it’s abstract
 
 trait Wagger:
   def startTail(): Unit = println("tail is wagging")
@@ -25,7 +25,7 @@ class Cat(name: String) extends Speaker, Wagger, Runner:
   override def startRunning(): Unit = println("Yeah ... I don’t run")
   override def stopRunning(): Unit = println("No need to stop")
 
-@main def bTrait() : Unit =
+@main def traits(): Unit =
   // Wagger is a trait; it cannot be instantiated
 //  val w = new Wagger()
 

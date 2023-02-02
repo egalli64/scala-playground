@@ -4,7 +4,7 @@
 
   Control structures: for loop
  */
-package com.github.egalli64.scala3.s03
+package com.github.egalli64.scala3.b01
 
 @main def loop(): Unit =
   val data = List(1, 2, 3, 4, 5)

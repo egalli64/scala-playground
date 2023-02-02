@@ -4,13 +4,11 @@
 
   Control structures: try catch finally
  */
-package com.github.egalli64.scala3.s03
+package com.github.egalli64.scala3.b01
 
 @main def tryCatchFinally(input: String): Unit =
   try
     val i: Int = input.toInt
     println(s"Value is $i")
-  catch
-    case nfe: NumberFormatException => println("Can't get Int. " + nfe.getMessage)
-  finally
-    println("done")
+  catch case exc: NumberFormatException => println("Can't get Int. " + exc.getMessage)
+  finally println("done")

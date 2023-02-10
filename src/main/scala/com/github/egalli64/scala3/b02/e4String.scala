@@ -1,3 +1,9 @@
+/*
+  https://docs.scala-lang.org/scala3/book/first-look-at-types.html
+  https://github.com/egalli64/scala-playground
+
+  Two notes about strings
+ */
 package com.github.egalli64.scala3.b02
 
 @main

@@ -1,5 +1,5 @@
 /*
-  https://docs.scala-lang.org/scala3/book/taste-collections.html
+  https://docs.scala-lang.org/scala3/book/first-look-at-types.html
   https://github.com/egalli64/scala-playground
 
   Type hierarchy

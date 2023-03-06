@@ -30,7 +30,10 @@ def matching(): Unit =
   println(day)
 
   // 1b. Used like a Java switch statement, with default value
+  val SPECIAL = Wednesday
   day match
+    // to be detected as a constant, it should have (at least) the first letter as uppercase
+    case SPECIAL  => println("In the middle of the week!")
     case Saturday => println("Time to having fun")
     case Sunday   => println("Time to relax")
     // catch-all-case, the actual value is assigned to a local variable that could be used on the rhs
@@ -45,24 +48,24 @@ def matching(): Unit =
   // 2. If guards in case clause
   day match
     case x if x != Monday && x.ordinal < Friday.ordinal => println("Lot of things to do ...")
-    case x if x == Monday || x == Friday => println("Take it easy")
-    case _ => println("Weekend")
+    case x if x == Monday || x == Friday                => println("Take it easy")
+    case _                                              => println("Weekend")
 
   // 2b. Guards with ranges
   val x = Random.nextInt(40)
   x match
-    case a if 0 to 9 contains a => println(s"0-9 range: $a")
+    case a if 0 to 9 contains a   => println(s"0-9 range: $a")
     case b if 10 to 19 contains b => println(s"10-19 range: $b")
     case c if 20 to 29 contains c => println(s"20-29 range: $c")
-    case _ => println(s"Hmmm... ($x)")
+    case _                        => println(s"Hmmm... ($x)")
 
   // 3. Match on case class
   case class Person(name: String)
 
   def greet(p: Person): Unit = p match
     case Person(name) if name == "Tim" || name == "Kim" => println(s"Welcome back, ${name}my!")
-    case Person(name) if name == "Bill" => println(s"Welcome back, ${name}y!")
-    case _ => println("Hi, " + p.name)
+    case Person(name) if name == "Bill"                 => println(s"Welcome back, ${name}y!")
+    case _                                              => println("Hi, " + p.name)
 
   greet(Person("Bob"))
   greet(Person("Kim"))

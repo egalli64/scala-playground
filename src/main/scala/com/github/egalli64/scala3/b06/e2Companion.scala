@@ -1,5 +1,5 @@
 /*
-  https://docs.scala-lang.org/scala3/book/domain-modeling-oop.html
+  https://docs.scala-lang.org/scala3/book/domain-modeling-fp.html
   https://github.com/egalli64/scala-playground
 
   Domain Modeling - FP Modeling - Organize - Companion Object

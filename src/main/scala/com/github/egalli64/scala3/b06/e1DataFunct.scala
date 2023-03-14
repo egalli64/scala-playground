@@ -8,22 +8,22 @@ package com.github.egalli64.scala3.b06
 
 import scala.util.Random
 
+/*
+  1. Modeling data with different alternatives using enum
+
+  In FP data and the operations on that data are separate - "Skinny domain objects"
+ */
+enum CrustSize:
+  case Small, Medium, Large
+
+enum CrustType:
+  case Thin, Thick, Regular
+
+enum Topping:
+  case Cheese, Pepperoni, BlackOlives, GreenOlives, Onions
+
 @main
 def dataAndFunctions(): Unit =
-  /*
-    1. Modeling data with different alternatives using enum
-
-    In FP data and the operations on that data are separate - "Skinny domain objects"
-   */
-  enum CrustSize:
-    case Small, Medium, Large
-
-  enum CrustType:
-    case Thin, Thick, Regular
-
-  enum Topping:
-    case Cheese, Pepperoni, BlackOlives, GreenOlives, Onions
-
   val aSize = CrustSize.fromOrdinal(Random.nextInt(CrustSize.values.length))
   val aType = CrustType.fromOrdinal(Random.nextInt(CrustType.values.length))
   val aTopping = Topping.fromOrdinal(Random.nextInt(Topping.values.length))

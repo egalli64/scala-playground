@@ -1,5 +1,5 @@
 /*
-  https://docs.scala-lang.org/scala3/book/fun-write-method-returns-function.html
+  https://docs.scala-lang.org/scala3/book/packaging-imports.html
   https://github.com/egalli64/scala-playground
 
   Packaging and Imports

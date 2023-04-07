@@ -1,5 +1,5 @@
 /*
-  https://docs.scala-lang.org/scala3/book/fp-functions-are-values.html
+  https://docs.scala-lang.org/scala3/book/fp-functional-error-handling.html
   https://github.com/egalli64/scala-playground
 
   Functional Programming - Functional Error Handling

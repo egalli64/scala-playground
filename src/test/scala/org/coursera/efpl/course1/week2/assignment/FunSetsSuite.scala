@@ -7,8 +7,9 @@
  */
 package org.coursera.efpl.course1.week2.assignment
 
-class FunSetsSuite extends munit.FunSuite:
+import org.scalatest.funsuite.AnyFunSuite
 
+class FunSetsSuite extends AnyFunSuite:
   import FunSets.*
 
   trait TestSets:
@@ -18,8 +19,10 @@ class FunSetsSuite extends munit.FunSuite:
     val odds: FunSet = x => x % 2 == 1
 
   test("singleton one") {
+
     /**
-     * Testing on a new instance of the TestSets trait */
+     * Testing on a new instance of the TestSets trait
+     */
     new TestSets:
       assert(contains(s1, 1), "expecting 1")
       assert(!contains(s1, 2), "not expecting 2")
@@ -81,7 +84,4 @@ class FunSetsSuite extends munit.FunSuite:
       assert(!exists(s, x => x > 0), "not expecting positive")
   }
 
-  import scala.concurrent.duration.*
-
-  override val munitTimeout: FiniteDuration = 10.seconds
 end FunSetsSuite

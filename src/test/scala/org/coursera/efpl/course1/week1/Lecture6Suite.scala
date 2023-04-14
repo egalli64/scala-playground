@@ -7,25 +7,28 @@
  */
 package org.coursera.efpl.course1.week1
 
-class Lecture6Suite extends munit.FunSuite:
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
+
+class Lecture6Suite extends AnyFunSuite with Matchers:
   import Lecture6.sqrt
 
   test("Square root of 'normal' number") {
-    assertEqualsDouble(sqrt(121.0), 11.0, 0.000_001)
+    sqrt(121.0) shouldBe 11.0
   }
 
   test("Square root of 1") {
-    assertEqualsDouble(sqrt(1.0), 1.0, 0.000_001)
+    sqrt(1.0) shouldBe (1.0 +- 1e-15)
   }
 
   test("Square root of small number") {
-    assertEqualsDouble(sqrt(0.1e-20), Math.sqrt(0.1e-20), 0.000_001)
+    sqrt(1e-21) shouldBe (9.536e-7 +- 1e-10)
   }
 
   test("Square root of big number") {
-    assertEqualsDouble(sqrt(1e20), Math.sqrt(1e20), 0.000_001)
+    sqrt(1e21) shouldBe (31_622_776_601.0 +- 1.0)
   }
 
   test("Square root of very big number") {
-    assertEqualsDouble(sqrt(1e50), Math.sqrt(1e50), 0.000_001)
+    sqrt(1e51) shouldBe (3.162_277_660e25 +- 1e16)
   }

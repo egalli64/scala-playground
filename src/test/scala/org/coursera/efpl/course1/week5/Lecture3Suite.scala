@@ -7,27 +7,30 @@
  */
 package org.coursera.efpl.course1.week5
 
-class Lecture3Suite extends munit.FunSuite:
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
+
+class Lecture3Suite extends AnyFunSuite with Matchers:
   test("pack nil") {
-    assertEquals(pack(Nil), Nil)
+    pack(Nil) shouldBe Nil
   }
 
   test("pack simple") {
-    assertEquals(pack(List(1, 2, 3)), List(List(1), List(2), List(3)))
+    pack(List(1, 2, 3)) shouldBe List(List(1), List(2), List(3))
   }
 
   test("pack triplet") {
-    assertEquals(pack(List(1, 1, 1)), List(List(1, 1, 1)))
+    pack(List(1, 1, 1)) shouldBe List(List(1, 1, 1))
   }
 
   test("pack sample") {
     val l = List("a", "a", "a", "b", "c", "c", "a")
     val expected = List(List("a", "a", "a"), List("b"), List("c", "c"), List("a"))
-    assertEquals(pack(l), expected)
+    pack(l) shouldBe expected
   }
 
   test("encode sample") {
     val l = List("a", "a", "a", "b", "c", "c", "a")
     val expected = List(("a", 3), ("b", 1), ("c", 2), ("a", 1))
-    assertEquals(encode(l), expected)
+    encode(l) shouldBe expected
   }

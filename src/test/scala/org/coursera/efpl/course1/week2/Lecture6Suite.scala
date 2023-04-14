@@ -7,15 +7,20 @@
  */
 package org.coursera.efpl.course1.week2
 
-class Lecture6Suite extends munit.FunSuite:
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
+
+class Lecture6Suite extends AnyFunSuite with Matchers:
   test("Rational6 creation") {
     val r = Rational6(1, 2)
-    assertEquals(r.numerator, 1)
-    assertEquals(r.denominator, 2)
+
+    r.numerator shouldBe 1
+    r.denominator shouldBe 2
   }
 
   test("RationalLazy creation") {
     val r = RationalLazy(1, 2)
-    assertEquals(r.numerator, 1)
-    assertEquals(r.denominator, 2)
+
+    r.numerator shouldBe 1
+    r.denominator shouldBe 2
   }

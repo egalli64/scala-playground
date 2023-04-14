@@ -1,6 +1,9 @@
 package org.coursera.efpl.course1.week3.assignment
 
-class TweetSetSuite extends munit.FunSuite:
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
+
+class TweetSetSuite extends AnyFunSuite with Matchers:
   trait TestSets:
     val tA: Tweet = Tweet("a", "a body", 20)
     val tB: Tweet = Tweet("b", "b body", 20)
@@ -24,57 +27,57 @@ class TweetSetSuite extends munit.FunSuite:
   test("Filter acc on empty") {
     new TestSets:
       private val s = s0.filterAcc(_ => true, s1)
-      assertEquals(size(s), 1)
+      size(s) shouldBe 1
       assert(s.contains(tA))
   }
 
   test("Filter acc on non-empty") {
     new TestSets:
       private val s = s1.filterAcc(_ => true, s2)
-      assertEquals(size(s), 2)
+      size(s) shouldBe 2
       assert(s.contains(tA))
       assert(s.contains(tB))
   }
 
   test("Filter all on empty") {
     new TestSets:
-      assertEquals(size(s0.filter(_ => true)), 0)
+      size(s0.filter(_ => true)) shouldBe 0
   }
 
   test("Filter on empty") {
     new TestSets:
-      assertEquals(size(s0.filter(tw => tw.user == "a")), 0)
+      size(s0.filter(tw => tw.user == "a")) shouldBe 0
   }
 
   test("Filter all on non-empty") {
     new TestSets:
       private val s = s1.filter(_ => true)
-      assertEquals(size(s), size(s1))
+      size(s) shouldBe size(s1)
   }
 
   test("Filter by user") {
     new TestSets:
-      assertEquals(size(s4.filter(tw => tw.user == "a")), 1)
+      size(s4.filter(tw => tw.user == "a")) shouldBe 1
   }
 
   test("Filter by retweets") {
     new TestSets:
-      assertEquals(size(s4.filter(tw => tw.retweets == 20)), 2)
+      size(s4.filter(tw => tw.retweets == 20)) shouldBe 2
   }
 
   test("union") {
     new TestSets:
-      assertEquals(size(s2.union(s2a)), 4)
+      size(s2.union(s2a)) shouldBe 4
   }
 
   test("union non-empty empty") {
     new TestSets:
-      assertEquals(size(s4.union(s0)), 4)
+      size(s4.union(s0)) shouldBe 4
   }
 
   test("union empty non-empty") {
     new TestSets:
-      assertEquals(size(s0.union(s4)), 4)
+      size(s0.union(s4)) shouldBe 4
   }
 
   test("descending") {
@@ -86,9 +89,6 @@ class TweetSetSuite extends munit.FunSuite:
 
   test("most retweeted") {
     new TestSets:
-      assertEquals(s4.mostRetweeted.retweets, 20)
+      s4.mostRetweeted.retweets shouldBe 20
   }
-
-  import scala.concurrent.duration.*
-  override val munitTimeout: FiniteDuration = 10.seconds
 end TweetSetSuite

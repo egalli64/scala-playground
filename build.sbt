@@ -7,6 +7,4 @@ lazy val root = (project in file("."))
     name := "scala-playground"
   )
 
-libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test
-testFrameworks += new TestFramework("munit.Framework")
-
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.15" % Test

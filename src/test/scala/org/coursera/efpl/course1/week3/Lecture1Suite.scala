@@ -7,7 +7,9 @@
  */
 package org.coursera.efpl.course1.week3
 
-class Lecture1Suite extends munit.FunSuite:
+import org.scalatest.funsuite.AnyFunSuite
+
+class Lecture1Suite extends AnyFunSuite:
   test("singleton") {
     val s = IntSet.singleton(42)
     assert(s.contains(42))

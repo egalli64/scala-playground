@@ -7,13 +7,16 @@
  */
 package org.coursera.efpl.course1.week1.assignment
 
-class ListsSuite extends munit.FunSuite:
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
+
+class ListsSuite extends AnyFunSuite with Matchers:
   import Lists.*
-  
+
   test("sum of a few numbers") {
-    assertEquals(sum(List(1, 2, 0)), 3)
+    sum(List(1, 2, 0)) shouldBe 3
   }
 
   test("max of a few numbers") {
-    assertEquals(max(List(3, 7, 2)), 7)
+    max(List(3, 7, 2)) shouldBe 7
   }

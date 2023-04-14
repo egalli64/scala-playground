@@ -7,10 +7,13 @@
  */
 package org.coursera.efpl.course1.week2
 
-class Lecture5Suite extends munit.FunSuite:
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
+
+class Lecture5Suite extends AnyFunSuite with Matchers:
   test("Rational creation") {
     val r = Rational(1, 2)
-    assertEquals(r.numerator, 1)
-    assertEquals(r.denominator, 2)
-  }
 
+    r.numerator shouldBe 1
+    r.denominator shouldBe 2
+  }

@@ -8,37 +8,37 @@
  */
 package com.artima.scala5ed.ch02
 
-/**
- * Looping on a sequence by while-do
- *
- * @param args
- *   repeated parameter
- */
-def m1(args: String*): Unit =
-  // i is Int by type inference
-  var i = 0
-  // the block is identified by indentation (a la Python), args is a sequence of strings, length is its size
-  while i < args.length do
-    println(args(i))
-    // no prefix/postfix ++ in Scala
-    i += 1
-
-/**
- * Looping on a sequence by while-do, but here using print() instead of println() on args
- *
- * @param args
- *   repeated parameter
- */
-def m2(args: String*): Unit =
-  var i = 0
-  while i < args.length do
-    if i != 0 then print(" ")
-    print(args(i))
-    i += 1
-  println()
-
 @main
 def s05(): Unit =
+  /**
+   * Looping on a sequence by while-do
+   *
+   * @param args
+   *   repeated parameter
+   */
+  def m1(args: String*): Unit =
+    // i is Int by type inference
+    var i = 0
+    // the block is identified by indentation (a la Python), args is a sequence of strings, length is its size
+    while i < args.length do
+      println(args(i))
+      // no prefix/postfix ++ in Scala
+      i += 1
+
+  /**
+   * Looping on a sequence by while-do, but here using print() instead of println() on args
+   *
+   * @param args
+   *   repeated parameter
+   */
+  def m2(args: String*): Unit =
+    var i = 0
+    while i < args.length do
+      if i != 0 then print(" ")
+      print(args(i))
+      i += 1
+    println()
+
   m1("a", "b", "c")
   println("---")
 

@@ -4,7 +4,7 @@
 
   https://github.com/egalli64/scala-playground
 
-  Basic Types and Operations - Constructing a Rational
+  Functional Objects - Constructing a Rational
  */
 package com.artima.scala5ed.ch06
 

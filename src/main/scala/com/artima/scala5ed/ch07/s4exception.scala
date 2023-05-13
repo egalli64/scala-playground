@@ -11,7 +11,7 @@ package com.artima.scala5ed.ch07
 import java.io.FileReader
 
 @main
-def s4(): Unit =
+def s4exception(): Unit =
   // 1. throw
   def half(n: Int) =
     if n % 2 == 0 then n / 2

@@ -1,7 +1,3 @@
-import pack2a.Ship
-import pack2a.fleets.Fleet
-import pack2a.launch.Booster
-
 /*
   Programming in Scala, 5th Edition - source code shown in the book
   Download the zip file from: https://booksites.artima.com/programming_in_scala_5ed
@@ -10,33 +6,35 @@ import pack2a.launch.Booster
 
   Packages, Imports, and Exports - Concise access to related code
  */
-
-package pack2a:
+/**
+ * a package hierarchy
+ */
+package pack2:
   package navigation:
-    class Navigator2:
+    class Navigator:
       val map = new StarMap
     class StarMap
   package launch:
     class Booster
 
   class Ship:
-    // No need to say pack2a.navigation.Navigator
-    val nav = new navigation.Navigator2
+    // No need to say pack2.navigation.Navigator
+    val nav = new navigation.Navigator
   package fleets:
     class Fleet:
-      // No need to say pack2a.Ship
+      // No need to say pack2.Ship
       def addShip() = new Ship
 
 @main
 def s2access(): Unit =
-  val nav = new pack2a.navigation.Navigator2
+  val nav = new pack2.navigation.Navigator
   println(nav)
   println(nav.map)
-  println(new pack2a.launch.Booster)
+  println(new pack2.launch.Booster)
 
-  val ship = new Ship
+  val ship = new pack2.Ship
   println(ship)
   println(ship.nav)
 
-  val fleet = new Fleet
+  val fleet = new pack2.fleets.Fleet
   println(fleet.addShip())

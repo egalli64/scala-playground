@@ -28,6 +28,12 @@ def e06e(): Unit =
   println(s"$x elements written to buffer")
   println(buffer.mkString)
 
+  // 2a. Pushing list elements in an array (unexpected truncation?)
+  val buffer2 = new Array[Char](3)
+  val y = letters.copyToArray(buffer2)
+  println(s"$y elements written to buffer2")
+  println(buffer2.mkString)
+
   // 3. iterating on a list
   val it = letters.iterator
   while it.hasNext do println(it.next)

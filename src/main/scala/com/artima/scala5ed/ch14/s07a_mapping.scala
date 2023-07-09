@@ -12,7 +12,7 @@
 package com.artima.scala5ed.ch14
 
 @main
-def s07(): Unit =
+def s07a(): Unit =
   // 1. map
   val numbers = List(1, 2, 3)
   val increasedNumbers = numbers.map(_ + 1)

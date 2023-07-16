@@ -13,7 +13,7 @@ package com.artima.scala5ed.ch15
 import scala.collection.mutable
 
 @main
-def s2_set(): Unit =
+def s2a_set(): Unit =
   // 1. immutable set
   val numbers = Set(1, 2, 3)
   println(s"An immutable int set: " + numbers)

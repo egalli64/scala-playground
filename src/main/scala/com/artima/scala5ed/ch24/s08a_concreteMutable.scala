@@ -4,11 +4,12 @@
 
   https://github.com/egalli64/scala-playground
 
-  Collections in Depth - Concrete immutable collection classes
-  ArrayBuffer, ListBuffer, StringBuilder
+  Collections in Depth - Concrete mutable collection classes
+  ArrayBuffer, ListBuffer, StringBuilder, ArrayDeque
  */
 package com.artima.scala5ed.ch24
 
+import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 
 @main
@@ -41,3 +42,13 @@ def s08a_concreteMutable(): Unit =
   sb ++= "bcdef"
   println("After appending 'a' and then \"bcdef\": " + sb)
   println("Converted to string: " + sb.toString)
+
+  /*
+    ArrayDeque
+   */
+  val ad = mutable.ArrayDeque.empty[Int]
+  println("An empty ArrayDeque: " + ad)
+  ad += 1
+  ad.prepend(10)
+  println("After appending 1 and prepending 10: " + ad)
+  println("Converted to array: " + ad.toArray.mkString("[", ", ", "]"))

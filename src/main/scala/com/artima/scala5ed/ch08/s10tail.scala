@@ -45,3 +45,15 @@ def s10tail(): Unit =
 
   try bang(3)
   catch case ex: Exception => ex.printStackTrace()
+
+  /*
+    Extra - factorial
+   */
+
+  def factorial(n: Int): Int =
+    @tailrec
+    def recursion(n:Int, acc:Int = 1):Int =
+      if n < 2 then acc else recursion(n - 1, acc * n)
+    recursion(n)
+
+  println(factorial(5))

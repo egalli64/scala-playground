@@ -44,3 +44,7 @@ def s09a_array(): Unit =
   val ops: collection.ArrayOps[Int] = a1
   println(s"ArrayOps from array ${ops.head} ...")
   println(s"Reverted  ${ops.reverse.head} ...")
+
+  // Let the compiler do the work
+  println("Reversed (implicit conversion to ArrayOps): " + a1.reverse.mkString(", "))
+  println("Reversed (explicit conversion to ArrayOps): " + intArrayOps(a1).reverse.mkString(", "))

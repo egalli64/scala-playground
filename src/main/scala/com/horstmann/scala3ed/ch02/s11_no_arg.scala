@@ -7,6 +7,7 @@ https://github.com/egalli64/scala-playground
 
 2. Control Structures and Functions
  11. Functions without Parameters
+ 12. Lazy Values
  */
 package com.horstmann.scala3ed.ch02
 
@@ -27,7 +28,7 @@ def s11_no_arg(): Unit =
 
   // The call to mkString is eager, done at variable definition
   val myWords2 = data.mkString(",")
-  println("Using a variable: " + myWords2)
+  println("Using a val: " + myWords2)
 
   /**
    * Another function with no parameters - with parentheses, suggesting no idempotence
@@ -39,3 +40,7 @@ def s11_no_arg(): Unit =
   println("Calling (non-idempotent) function: " + myWords3())
   // won't compile without parentheses
   // println(words2)
+
+  // the assignment is done the first time the variable is accessed
+  lazy val myWords4 = data.mkString(",")
+  println("Using (for the first time) a lazy val: " + myWords4)

@@ -6,12 +6,12 @@
   https://github.com/egalli64/scala-playground
 
   5. Classes
-   6. The Primary Constructor - is part of the class definition
+   6. The Primary Constructor - part of the class definition
  */
 package com.horstmann.scala3ed.ch05
 
 @main
-def s06_constructor(): Unit =
+def s6_constructor(): Unit =
   /**
    * A class defining its primary constructor with two fields, both val's
    *

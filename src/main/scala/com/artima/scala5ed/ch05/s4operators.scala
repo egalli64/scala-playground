@@ -19,7 +19,8 @@ def s4operators(): Unit =
   // Any method taking just one parameter could be used as an infix operator
   val s = "Hello, world!"
   // Using the operator notation to invoke indexOf
-  val oPos = s indexOf 'o'
+  // Since 3.4 it generates a warning if not explicitly marked as infix operator!
+  val oPos = s `indexOf` 'o'
   println(s"Getting the position of the first 'o', calling indexOf as an operator: $oPos")
 
   // There are only 4 prefix operators: + - ! ~, their method names start by "unary_", es: unary_-

@@ -6,4 +6,11 @@
  */
 package com.leetcode.easy
 
-def lengthOfLastWord(s: String): Int = s.split(' ').last.length
+/**
+ * @param s
+ *   a string s consisting of words and spaces
+ * @return
+ *   the length of the last word in the string
+ */
+def lengthOfLastWord(s: String): Int =
+  s.split(' ').last.length

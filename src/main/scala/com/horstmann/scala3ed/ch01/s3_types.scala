@@ -15,9 +15,9 @@ def s3_types(): Unit =
 
   // Generating a String from an Int
   val s1 = 1.toString
-  println("First char in s1 is: " + s1.charAt(0))
+  println("First char in s1 is: " + s1(0))
 
-  // Generating Range(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+  // Generating a Range for Int in 1 .. 10
   val r = 1.to(10)
   println("toString on r is: " + r)
 

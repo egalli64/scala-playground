@@ -19,7 +19,16 @@ def s3_types(): Unit =
 
   // Generating a Range for Int in 1 .. 10
   val r = 1.to(10)
-  println("toString on r is: " + r)
+  // Usual implicit object conversion to string
+  println("The r range converted to string: " + r)
+
+  // Any binary method could be used as an operator
+  val r2 = 2 to 9
+  println("The r2 range converted to string: " + r2)
+
+  // Actually, operators are just binary methods
+  val x = 6.*(7)
+  println("Multiplication as Int::* method: " + x)
 
   /*
     A Scala String is more than a Java String

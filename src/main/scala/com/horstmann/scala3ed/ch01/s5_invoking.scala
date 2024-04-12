@@ -11,18 +11,23 @@ package com.horstmann.scala3ed.ch01
 
 @main
 def s5_invoking(): Unit =
-  println("Intersection between strings: " + "Hello".intersect("World"))
-  // a parameterless method not modifying the object is called with no parenthesis
+  val s1 = "Hello"
+  val s2 = "World"
+  // invoking a method on an object
+  val s3 = s1.intersect(s2)
+  println(s"Intersection between '$s1' and '$s2' is '$s3'")
+
+  // a parameterless method not modifying the object is called with _no_ parenthesis
   println("Sorting a string: " + "Bonjour".sorted)
 
-  // similar to Java static import, used here to import method of the singleton object math
+  // similar to Java static import, used here to import method of the singleton package object math
   import scala.math.*
 
   println("Square root 2 is " + sqrt(2))
   println("2 ^ 4 is " + pow(2, 4))
   println("Minimum between 3 and Pi is " + min(3, Pi))
 
-  // You don't have to use an import:
+  // without import, explicit use of the package object:
   println("Square root 2 is " + scala.math.sqrt(2))
   // the package scala can be omitted
   println("Square root 2 is " + math.sqrt(2))

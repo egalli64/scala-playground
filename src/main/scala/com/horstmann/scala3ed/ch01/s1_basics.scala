@@ -18,7 +18,7 @@ def s1_basics(): Unit =
   // Won't compile - a val can't be reassigned
   // answer = 0
 
-  // "answer" is implicitly an integer (Int) and explicitly a variable (var)
+  // "counter" is implicitly an integer (Int) and explicitly a variable (var)
   var counter = 0
   println("The counter is " + counter)
   // OK, a var can change
@@ -29,16 +29,17 @@ def s1_basics(): Unit =
   val message: String = null
   println("A disappointing message: " + message)
 
-  // "greeting" is explicitly a constant "any" - actually a string
+  // "greeting" is explicitly a constant "Any" - actually a string
   var greeting: Any = "Hello"
   println("A nicer 'any' (implicitly converted to string): " + greeting)
 
+  // being a var, it could change - being Any could keep a reference to anything
   greeting = 42
   println("A variable 'any' (implicitly converted to Int): " + greeting)
 
   // _Defining_ multiple variables
   val xMax, yMax = 100
   println(s"xMax is $xMax and yMax is $yMax, too!")
-  // prefix and suffix are both strings, initialized with null
+  // prefix and suffix are both strings, both initialized with null
   val prefix, suffix: String = null
   println(s"prefix is $prefix and suffix is $suffix, too!")

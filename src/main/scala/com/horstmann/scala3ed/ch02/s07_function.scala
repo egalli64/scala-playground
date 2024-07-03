@@ -13,12 +13,12 @@ package com.horstmann.scala3ed.ch02
 @main
 def s07_function(): Unit =
   /**
-   * A function
+   * A oneliner function definition
    *
    * @param x
    *   the parameter
    * @return
-   *   the result
+   *   the result - notice that no "return" keyword is required
    */
   def abs(x: Double) = if x >= 0 then x else -x
 
@@ -27,7 +27,7 @@ def s07_function(): Unit =
   println("The result of invoking the method is " + result)
 
   /**
-   * A non-single-line function
+   * A multiline function definition
    *
    * @param n
    *   the parameter
@@ -43,6 +43,23 @@ def s07_function(): Unit =
   end iterativeFactorial
 
   println("Factorial (iterative): " + iterativeFactorial(5))
+
+
+  /**
+   * A multiline function definition - using brackets
+   *
+   * @param n
+   *   the parameter
+   * @return
+   *   the result
+   */
+  def bracketFactorial(n: Int) = {
+    var r = 1
+    for i <- 1 to n do r = r * i
+    r
+  }
+
+  println("Factorial (bracket): " + bracketFactorial(5))
 
   /**
    * The return type is mandatory for recursive functions

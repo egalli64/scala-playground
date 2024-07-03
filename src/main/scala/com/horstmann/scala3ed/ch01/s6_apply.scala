@@ -18,7 +18,7 @@ def s6_apply(): Unit =
   println(s"'$s' index 4 is '${s(4)}'")
   println(s"Same, but using explicitly apply(): '${s.apply(4)}'")
 
-  // Won't compile, an Ordering is expected by sorted
+  // Won't compile, 3 is seen as an argument for sorted(), but sorted() expects an Ordering
   // "Bonjour".sorted(3)
 
   // Divide it in two parts

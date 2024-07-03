@@ -15,15 +15,16 @@ import scala.util.Random
 @main
 def s01_conditional(): Unit =
   val x = Random().nextInt(2)
+  println(s"x is a random number in [0, 2), this time is $x")
 
-  // an Int if-else
+  // an Int initialized by if-then-else
   val x1 = if x > 0 then 1 else -1
   println(s"From 0, 1 to -1, 1: $x1, type is ${x1.getClass}")
 
-  // a Matchable if-else (in the worst case, Any will be used)
+  // a Matchable initialized by if-then-else (in the worst case, Any will be used)
   val x2 = if x > 0 then "positive" else -1
   println(s"From 0, 1 to -1, 'positive': $x2, type is ${x2.getClass}")
 
   // do not use an if with no else as expression, or you'll always get Unit!
-  // val x3 = if x > 0 then "positive"
-  // println(s"${x3}, type is ${x3.getClass}")
+//  val x3 = if x > 0 then "positive"
+//  println(s"${x3}, type is ${x3.getClass}")

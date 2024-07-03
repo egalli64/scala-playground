@@ -16,11 +16,13 @@ import scala.io.StdIn
 def s04_io() : Unit =
   val name = "Tom"
 
+  // s-string
   println(s"Hello $name")
-  println(f"Hello $name%5s")
+  // formatting in a f-string
+  println(f"Formatting the name: <$name%5s>")
 
   print("Gimme an integer: ")
   try
     val x = StdIn.readInt()
     println(s"OK, $name, $x is a good value")
-  catch case ex: NumberFormatException => println(ex.getMessage + " you get an exception of " + ex.getClass)
+  catch case ex: NumberFormatException => println(ex.getClass.getName + " with message: " + ex.getMessage)

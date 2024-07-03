@@ -17,11 +17,12 @@ def s03_block(): Unit =
   val x0 = 5
   val y = 3
   val y0 = 4
+
   // 1. brackets required to signal a block
   // 2. semicolons required to signal end of statement in block
-  // 3. the last statement is evaluated the rhs assigned to the lhs
+  // 3. the last statement is evaluated, the rhs assigned to the lhs
   val distance = { val dx = x - x0; val dy = y - y0; scala.math.sqrt(dx * dx + dy * dy) }
-  println(distance)
+  println(s"the distance between ($x, $y) and ($x0, $y0) is $distance")
 
   // same, in a more scala3-idiomatic way
   // 1. no brackets, but newline
@@ -30,4 +31,4 @@ def s03_block(): Unit =
     val dx = x - x0
     val dy = y - y0
     scala.math.sqrt(dx * dx + dy * dy)
-  println(distance2)
+  println(s"the distance between ($x, $y) and ($x0, $y0) is $distance")

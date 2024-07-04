@@ -13,14 +13,14 @@ package com.horstmann.scala3ed.ch03
 @main
 def s1_array(): Unit =
   val strings = Array("Hello", "World")
-  println(s"strings is sized ${strings.length} contains ${strings.mkString(", ")}")
+  println(s"an array of strings sized ${strings.length} containing ${strings.mkString(", ")}")
 
   val moreStrings = Array.ofDim[String](5)
-  println(s"moreStrings is sized ${moreStrings.length} contains ${moreStrings.mkString(", ")}")
+  println(s"another array of strings sized ${moreStrings.length} containing ${moreStrings.mkString(", ")}")
 
   val numbers = Array.ofDim[Int](10)
-  println(s"numbers is sized ${numbers.length} contains ${numbers.mkString(", ")}")
+  println(s"an array of int sized ${numbers.length} containing ${numbers.mkString(", ")}")
 
   // setter
   strings(0) = "Goodbye"
-  println(s"Now strings contains ${strings.mkString(", ")}")
+  println(s"Now the first array contains ${strings.mkString(", ")}")

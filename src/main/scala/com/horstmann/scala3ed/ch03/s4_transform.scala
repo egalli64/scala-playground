@@ -13,22 +13,27 @@ package com.horstmann.scala3ed.ch03
 @main
 def s4_transform(): Unit =
   val xs = Array(2, 3, 5, 7, 11)
+  println("A val array: " + xs.mkString(", "))
 
-  // use for comprehension to double each element in the array
+  println("Mapping to double")
   val doubled = for x <- xs yield 2 * x
-  println(s"xs is [${xs.mkString(", ")}], result is [${doubled.mkString(", ")}]")
-  println(s"Same, by map: [${xs.map(_ * 2).mkString(", ")}]")
+  println("By for comprehension: " + doubled.mkString(", "))
+  println("By map method: " + xs.map(_ * 2).mkString(", "))
+  println()
 
   // add a guard to filter the data before applying the change
+  println("Filtering and mapping: from even values only, halved")
   val evenHalved = for x <- xs if x % 2 == 0 yield x / 2
-  println("After guarded yielding: " + evenHalved.mkString(", "))
-  println("Same, by filter and map: " + xs.filter(_ % 2 == 0).map(_ / 2).mkString(", "))
+  println("By guarded for comprehension: " + evenHalved.mkString(", "))
+  println("By filter and map methods: " + xs.filter(_ % 2 == 0).map(_ / 2).mkString(", "))
+  println()
 
   val bs = xs.toBuffer
   bs.insert(2, -1)
   println("An array buffer: " + bs)
 
-  // remove negative elements, the imperative way
+  println("Remove negative elements")
+  // remove negative elements, the imperative way - looping and changing the collection
   var n = bs.length
   var i = 0
   while i < n do
@@ -36,21 +41,18 @@ def s4_transform(): Unit =
     else
       bs.remove(i)
       n -= 1
+  println("In-place imperative: " + bs)
 
-  println("After removing: " + bs)
-
-  // remove negative elements, the Scala way
   bs.insert(2, -1)
   val yielded = for x <- bs if x >= 0 yield x
-  println(s"Again, $bs, by guard and yield: $yielded")
+  println("By guarded for comprehension: " + yielded.mkString(", "))
 
-  // remove negative elements, the functional way
   bs.insert(2, -1)
   val filtered = bs.filter(_ >= 0)
-  println(s"Again, $bs, by filter: $filtered")
+  println("By filter: " + filtered)
 
   // remove in-place
   bs.insert(2, -1)
   val elementsToRemove = for i <- bs.indices if bs(i) < 0 yield i
   for i <- elementsToRemove.reverse do bs.remove(i)
-  println(s"Again, removing in-place: $bs")
+  println("In-place more readable: " + bs)

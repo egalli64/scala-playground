@@ -16,22 +16,27 @@ import scala.collection.mutable.ArrayBuffer
 def s5_algo(): Unit =
   val a = Array(1, 7, 2, 9)
   val b = a.toBuffer
+  println(s"Given the array ${a.mkString(", ")} and the array buffer $b")
 
   // sum
-  println("Adding up all the elements in an array: " + a.sum)
-  println("Adding up all the elements in an array (buffer): " + b.sum)
+  println(s"Using the method sum to add up all the elements: ${a.sum}, ${b.sum}\n")
 
   // max
+  println(s"Using max to get the largest element: ${a.max}, ${b.max}")
   val bs = ArrayBuffer("Mary", "had", "a", "little", "lamb")
-  println("Getting the 'max' string in an array (buffer): " + bs.max)
+  println(s"On strings, in $bs max is ${bs.max}\n")
 
   // sorting
+  val aSorted = a.sorted
   val bSorted = b.sorted
-  println(s"$b sorted is $bSorted")
+  println(s"Using the method sorted: ${aSorted.mkString(", ")} - $bSorted")
 
-  val bDescendingSorted = b.sortWith(_ > _)
-  println(s"$b descending sorted is $bDescendingSorted")
+  val aDescSorted = a.sortWith(_ > _)
+  val bDescSorted = b.sortWith(_ > _)
+  println(s"Using sortWith with a lambda: ${aDescSorted.mkString(", ")} - $bDescSorted")
 
   // sort in-place
-  a.sortInPlace()
-  println("Now the array a is sorted: " + a.mkString(", "))
+  a.sortInPlace
+  // not available on buffer
+  // b.sortInPlace
+  println("Using sortInPlace only on array: " + a.mkString(", "))

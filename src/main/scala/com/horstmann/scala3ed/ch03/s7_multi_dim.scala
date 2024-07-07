@@ -13,12 +13,12 @@ package com.horstmann.scala3ed.ch03
 
 @main
 def s7_multi_dim(): Unit =
-  // A squared two-dimensional matrix, three rows, four columns
+  println("A squared two-dimensional matrix, three rows, four columns")
   val matrix = Array.ofDim[Double](3, 4)
   // No built-in ways to simply convert it to a string, fallback to Java
   println(java.util.Arrays.deepToString(matrix.asInstanceOf[Array[Object]]))
 
-  // A matrix with variable length rows
+  println("\nA matrix with variable length rows")
   val triangle = Array.ofDim[Array[Int]](6)
   for i <- triangle.indices do triangle(i) = Array.ofDim[Int](i + 1)
   println(java.util.Arrays.deepToString(triangle.asInstanceOf[Array[Object]]))

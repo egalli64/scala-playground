@@ -14,15 +14,19 @@ package com.horstmann.scala3ed.ch04
 def s1_map_build(): Unit =
   // maps contain pairs
   val tom = "Tom" -> 42
-  println("A pair: " + tom)
+  println("A pair (arrow syntax): " + tom)
 
   val kim = ("Kim", 12)
-  println("Another pair: " + kim)
+  println("Another pair (parentheses): " + kim + "\n")
 
   // an immutable Map[String, Int]
   val scores = Map("Alice" -> 10, "Bob" -> 3, "Cindy" -> 8, tom, kim)
   println("A map: " + scores)
+  // Can't mutate an immutable map
+  // scores += "Tom" -> 23
 
   // an empty mutable map
   val scores2 = scala.collection.mutable.Map[String, Int]()
-  println("Another map: " + scores2)
+  println("A mutable map: " + scores2)
+  scores2 += "Tom" -> 23
+  println("Mutated map: " + scores2)

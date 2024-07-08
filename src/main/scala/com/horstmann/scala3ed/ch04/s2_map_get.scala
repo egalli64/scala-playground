@@ -17,21 +17,21 @@ def s2_map_get(): Unit =
   println("A map: " + scores)
 
   // Access to value by apply is unsafe, an exception is thrown when key is missing
-  println("Bob's score is " + scores("Bob"))
+  println("\nAccessing value by apply for Bob: " + scores("Bob"))
   // Protect it with a try-catch block
   try println("Tom's score is " + scores("Tom"))
   catch case ex: NoSuchElementException => println("Beware of exceptions, " + ex)
-
   // Or, check if key is available first
-  println("Dan's score is " + (if scores.contains("Dan") then scores("Dan") else "missing"))
+  val danScore = if scores.contains("Dan") then scores("Dan") else "missing"
+  println("Applying only if contains, Dan's score is " + danScore)
 
   // Or, use get, that returns an Option
-  println("Mia's score is " + scores.get("Mia"))
-  println("Alice's score is " + scores.get("Alice"))
+  println("Option by get for Mia score: " + scores.get("Mia"))
+  println("... and for Alice: " + scores.get("Alice"))
 
   // Or, use getOrElse
-  println("Kim's score is " + scores.getOrElse("Kim", "missing"))
+  println("Actual value by getOrElse for Kim score: " + scores.getOrElse("Kim", "missing"))
 
   // Or, convert the immutable map to a map with default value for apply
   val scores2 = scores.withDefaultValue(0)
-  println("Tom's score is " + scores2("Tom"))
+  println("Using a default map - so apply return a default value - on Tom: " + scores2("Tom"))

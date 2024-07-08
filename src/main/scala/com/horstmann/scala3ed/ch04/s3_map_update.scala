@@ -10,10 +10,12 @@
  */
 package com.horstmann.scala3ed.ch04
 
+import scala.collection.mutable
+
 @main
 def s3_map_update(): Unit =
   // mutating a mutable map
-  val scores = scala.collection.mutable.Map("Alice" -> 10, "Bob" -> 3, "Cindy" -> 8)
+  val scores = mutable.Map("Alice" -> 10, "Bob" -> 3, "Cindy" -> 8)
   println("A mutable map: " + scores)
 
   // Bob changes its value, Fred is added as new
@@ -23,26 +25,26 @@ def s3_map_update(): Unit =
 
   // Bob changes its value, Frida is added as new
   scores ++= Map("Bob" -> 7, "Frida" -> 5)
-  println("After adding a map with Bob and Frida: " + scores)
+  println("After adding by ++= a map with Bob and Frida: " + scores)
 
   // remove a pair by key
   scores -= "Alice"
-  println("After removing Alice: " + scores)
+  println("After removing by -= Alice: " + scores)
 
   // an immutable map could be used to generate a new map
   val someScores = Map("Alice" -> 10, "Bob" -> 3)
   val moreScores = someScores + ("Cindy" -> 7)
-  println(s"From $someScores to $moreScores")
+  println(s"From $someScores (immutable) to $moreScores by +")
 
   // keeping the immutable maps in a single var, discarding the old ones
   var currentScores = moreScores
   println("Immutable scores in a var: " + currentScores)
   // verbosely adding a new pair
   currentScores = currentScores + ("Fred" -> 0)
-  println("After adding Fred: " + currentScores)
+  println("After adding by + Fred: " + currentScores)
   // handier
   currentScores += "Donald" -> 5
-  println("After adding Donald: " + currentScores)
+  println("After adding by += Donald: " + currentScores)
 
   // removing a pair
   currentScores = currentScores - "Fred"

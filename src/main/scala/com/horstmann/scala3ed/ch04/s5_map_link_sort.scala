@@ -17,7 +17,7 @@ def s5_map_link_sort(): Unit =
     Immutable hash map is a linked hash map, traversed in insertion order
    */
   val m1 = Map("Fred" -> 1, "Alice" -> 2, "Bob" -> 3)
-  println("A map: " + m1)
+  println("The immutable map preserves the insertion order: " + m1)
 
   val m2 = Map("Bob" -> 3, "Alice" -> 2, "Fred" -> 1)
   println("Another map: " + m2)
@@ -26,7 +26,7 @@ def s5_map_link_sort(): Unit =
     For efficiency, by default mutable hash map is not linked
    */
   val mm1 = scala.collection.mutable.Map("Fred" -> 1, "Alice" -> 2, "Bob" -> 3)
-  println("A mutable map: " + mm1)
+  println("A mutable map (no order): " + mm1)
 
   val mm2 = scala.collection.mutable.Map("Bob" -> 3, "Alice" -> 2, "Fred" -> 1)
   println("Another mutable map: " + mm2)
@@ -35,7 +35,7 @@ def s5_map_link_sort(): Unit =
     Use of mutable linked hash map
    */
   val lmm1 = scala.collection.mutable.LinkedHashMap("Fred" -> 1, "Alice" -> 2, "Bob" -> 3)
-  println("A linked mutable map: " + lmm1)
+  println("A linked mutable map (insertion order preserved): " + lmm1)
 
   val lmm2 = scala.collection.mutable.LinkedHashMap("Bob" -> 3, "Alice" -> 2, "Fred" -> 1)
   println("Another linked mutable map: " + lmm2)

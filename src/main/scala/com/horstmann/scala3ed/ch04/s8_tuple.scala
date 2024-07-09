@@ -13,8 +13,8 @@ package com.horstmann.scala3ed.ch04
 @main
 def s8_tuple(): Unit =
   val t = (1, 3.14, "Fred")
-  println(s"$t has components: ${t._1}, ${t._2}, ${t._3}")
-  println(s"$t has components: ${t(0)}, ${t(1)}, ${t(2)}")
+  println(s"$t has components: ${t._1}, ${t._2}, ${t._3} (by _ elements)")
+  println(s"$t has components: ${t(0)}, ${t(1)}, ${t(2)} (by apply)")
 
   val (first, second, third) = t
   println(s"Destructured tuple: $first, $second, $third")
@@ -23,4 +23,4 @@ def s8_tuple(): Unit =
   println("Concatenated tuple by ++ is " + t2)
 
   val t3 = "New York".partition(_.isUpper)
-  println("A method returning a tuple: " + t3)
+  println("The partition() method returns a tuple: " + t3)

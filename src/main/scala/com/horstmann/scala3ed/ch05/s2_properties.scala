@@ -32,8 +32,10 @@ def s2_properties(): Unit =
   class Person2:
     private var _age = 0
 
+    // getter
     def age: Int = _age
 
+    // setter
     def age_=(age: Int): Unit = if age > _age then _age = age
 
   val p2 = Person2()
@@ -42,6 +44,11 @@ def s2_properties(): Unit =
 //  p2._age = 12
 //  println(p2._age)
 
+  // calling the setter
   p2.age = 30
+
+  // this setter won't set anything - see method definition above
   p2.age = 21
+
+  // calling the getter
   println(p2.age)

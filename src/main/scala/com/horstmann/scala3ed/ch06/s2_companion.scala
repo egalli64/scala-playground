@@ -14,6 +14,9 @@ package com.horstmann.scala3ed.ch06
 
 @main
 def s2_companion(): Unit =
+  /**
+   * A class with a companion object
+   */
   class Account:
     val id: Int = Account.newUniqueNumber()
     private var balance = 0.0
@@ -21,7 +24,10 @@ def s2_companion(): Unit =
     def deposit(amount: Double): Unit =
       balance += amount
 
-  object Account: // The companion object
+  /**
+   * The companion object of the class with the same name
+   */
+  object Account:
     private var lastNumber = 0
 
     private def newUniqueNumber() =
@@ -30,3 +36,6 @@ def s2_companion(): Unit =
 
   val acc = Account()
   println("The generated account has id " + acc.id)
+
+  // no use in call the companion method from elsewhere than from the companion class
+//  println(Account.newUniqueNumber())

@@ -45,7 +45,7 @@ def s6_enum(): Unit =
      * @return
      *   the next color
      */
-    def next: TrafficLightColor = TrafficLightColor.fromOrdinal((ordinal + 2) % 3)
+    def next: TrafficLightColor = TrafficLightColor.fromOrdinal((ordinal + 1) % 3)
 
   // calling a custom method
   println("The next to yellow (custom method): " + TrafficLightColor2.Yellow.next)
@@ -57,7 +57,8 @@ def s6_enum(): Unit =
     def random(): TrafficLightColor = TrafficLightColor.fromOrdinal(scala.util.Random.nextInt(3))
 
   // calling the companion custom method
-  println("A random color (companion custom method): " + TrafficLightColor.random())
+  val color = TrafficLightColor.random()
+  println(s"A random color (companion custom method), $color")
 
   /**
    * An enum with a state, here, the light description
@@ -78,8 +79,8 @@ def s6_enum(): Unit =
     case Red, Yellow, Green
     @deprecated("Put your details here") case Blue
 
-  // I can be used, but the compiler warns about the deprecation
-  // println(TrafficLightColor4.Blue)
+  // Blue can be used, but the compiler warns about the deprecation
+//  println(TrafficLightColor4.Blue)
 
 /**
  * A Scala enum compatible with Java enum should be declared in a static scope
